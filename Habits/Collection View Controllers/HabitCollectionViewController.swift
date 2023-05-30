@@ -61,7 +61,7 @@ class HabitCollectionViewController: UICollectionViewController {
     }
     
     func updateCollectionView() {
-        let itemsBySection = model.habitsByName.values.reduce(into: [ViewModel.Section: [ViewModel.Item]]()) { partial, habit in
+        var itemsBySection = model.habitsByName.values.reduce(into: [ViewModel.Section: [ViewModel.Item]]()) { partial, habit in
             let item = habit
             
             let section: ViewModel.Section
@@ -76,12 +76,50 @@ class HabitCollectionViewController: UICollectionViewController {
         
         let sectionsIDs = itemsBySection.keys.sorted()
         
+        itemsBySection = itemsBySection.mapValues {$0.sorted()}
+        
         dataSource.applySnapshotUsing(sectionIDs: sectionsIDs, itemsBySection: itemsBySection)
+    }
+    
+    func createDataSource() -> DataSourceType {
+        let dataSource = DataSourceType(collectionView: collectionView) {
+            (collectionView, indexPath, item) in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Habit", for: indexPath) as! UICollectionViewListCell
+            
+            var content = cell.defaultContentConfiguration()
+            content.text = item.name
+            cell.contentConfiguration = content
+            
+            return cell
+        }
+        return dataSource
+    }
+    
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataSource = createDataSource()
+        collectionView.dataSource = dataSource
+        collectionView.collectionViewLayout = createLayout()
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        update()
     }
 }
