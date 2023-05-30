@@ -24,6 +24,8 @@
 		620FC98D2A2486490040C617 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620FC98C2A2486490040C617 /* Color.swift */; };
 		620FC98F2A2486CA0040C617 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620FC98E2A2486CA0040C617 /* APIRequest.swift */; };
 		622EC91A2A248B420094FC90 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EC9192A248B420094FC90 /* APIService.swift */; };
+		622EC91C2A2582B80094FC90 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EC91B2A2582B80094FC90 /* Settings.swift */; };
+		622EC91E2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		620FC98C2A2486490040C617 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		620FC98E2A2486CA0040C617 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		622EC9192A248B420094FC90 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		622EC91B2A2582B80094FC90 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				620FC98C2A2486490040C617 /* Color.swift */,
 				620FC98E2A2486CA0040C617 /* APIRequest.swift */,
 				622EC9192A248B420094FC90 /* APIService.swift */,
+				622EC91B2A2582B80094FC90 /* Settings.swift */,
+				622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */,
 				620FC9872A24847B0040C617 /* View Controllers */,
 				620FC9822A24830F0040C617 /* Collection View Controllers */,
 				620FC96C2A247C760040C617 /* Main.storyboard */,
@@ -188,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				620FC9812A2483090040C617 /* LogHabitCollectionViewController.swift in Sources */,
+				622EC91E2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */,
 				620FC9862A2484700040C617 /* UserViewController.swift in Sources */,
 				620FC98F2A2486CA0040C617 /* APIRequest.swift in Sources */,
 				620FC96B2A247C760040C617 /* ViewController.swift in Sources */,
@@ -196,6 +203,7 @@
 				620FC98D2A2486490040C617 /* Color.swift in Sources */,
 				620FC9842A2484600040C617 /* HabitDetailViewController.swift in Sources */,
 				622EC91A2A248B420094FC90 /* APIService.swift in Sources */,
+				622EC91C2A2582B80094FC90 /* Settings.swift in Sources */,
 				620FC9892A2485BD0040C617 /* Habit.swift in Sources */,
 				620FC9672A247C760040C617 /* AppDelegate.swift in Sources */,
 				620FC9692A247C760040C617 /* SceneDelegate.swift in Sources */,

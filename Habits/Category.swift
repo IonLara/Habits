@@ -12,6 +12,14 @@ struct Category {
     let color: Color
 }
 
-extension Category: Codable {
+extension Category: Codable {}
+
+extension Category: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
     
+    static func ==(lhs: Category, rhs: Category) -> Bool {
+        lhs.name == rhs.name
+    }
 }
