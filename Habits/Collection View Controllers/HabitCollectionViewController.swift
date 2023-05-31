@@ -151,4 +151,17 @@ class HabitCollectionViewController: UICollectionViewController {
         
         update()
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) {_ in
+            let item = self.dataSource.itemIdentifier(for: indexPath)!
+            
+            let favoriteToggle = UIAction(title: self.model.favoriteHabits.contains(item) ? "Unfavorite" : "Favorite") { (action) in
+                Settings.shared.toggleFavorite(item)
+                self.updateCollectionView()
+            }
+            return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [favoriteToggle])
+        }
+        return config
+    }
 }
