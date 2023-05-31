@@ -35,6 +35,15 @@ class HabitCollectionViewController: UICollectionViewController {
         typealias Item = Habit
     }
 
+    enum SectionHeader: String {
+        case kind = "SectionHeader"
+        case reuse = "HeaderView"
+        
+        var identifier: String {
+            return rawValue
+        }
+    }
+    
     struct Model {
         var habitsByName = [String : Habit]()
         var favoriteHabits: [Habit] {
@@ -92,6 +101,19 @@ class HabitCollectionViewController: UICollectionViewController {
             
             return cell
         }
+        dataSource.supplementaryViewProvider = {(collectionView, kind, indexPath) in
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier, for: indexPath) as! NamedSectionHeaderView
+            
+            let section = dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            
+            switch section {
+            case .favorites:
+                header.nameLabel.text = "Favorites"
+            case .category(let category):
+                header.nameLabel.text = category.name
+            }
+            return header
+        }
         return dataSource
     }
     
@@ -102,8 +124,13 @@ class HabitCollectionViewController: UICollectionViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(36))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SectionHeader.kind.identifier, alignment: .top)
+        sectionHeader.pinToVisibleBounds = true
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.boundarySupplementaryItems = [sectionHeader]
         
         return UICollectionViewCompositionalLayout(section: section)
     }
@@ -114,6 +141,8 @@ class HabitCollectionViewController: UICollectionViewController {
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
+        collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
