@@ -135,6 +135,12 @@ class HabitCollectionViewController: UICollectionViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
+    @IBSegueAction func showHabitDetail(_ coder: NSCoder, sender: UICollectionViewCell?) -> HabitDetailViewController? {
+        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else {return nil}
+        return HabitDetailViewController(coder: coder, habit: item)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -143,7 +149,6 @@ class HabitCollectionViewController: UICollectionViewController {
         collectionView.collectionViewLayout = createLayout()
         
         collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
