@@ -27,6 +27,7 @@
 		622EC91C2A2582B80094FC90 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EC91B2A2582B80094FC90 /* Settings.swift */; };
 		622EC91E2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */; };
 		62C0550F2A26AE140071331F /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0550E2A26AE140071331F /* NamedSectionHeaderView.swift */; };
+		62C055122A26CC470071331F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C055112A26CC470071331F /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		622EC91B2A2582B80094FC90 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
 		62C0550E2A26AE140071331F /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
+		62C055112A26CC470071331F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +89,12 @@
 				620FC9662A247C760040C617 /* AppDelegate.swift */,
 				620FC9682A247C760040C617 /* SceneDelegate.swift */,
 				620FC96A2A247C760040C617 /* ViewController.swift */,
-				620FC9882A2485BD0040C617 /* Habit.swift */,
-				620FC98A2A2486190040C617 /* Category.swift */,
-				620FC98C2A2486490040C617 /* Color.swift */,
 				620FC98E2A2486CA0040C617 /* APIRequest.swift */,
 				622EC9192A248B420094FC90 /* APIService.swift */,
 				622EC91B2A2582B80094FC90 /* Settings.swift */,
 				622EC91D2A25C7C90094FC90 /* UICollectionViewDiffableDataSource+ViewModel.swift */,
 				62C0550E2A26AE140071331F /* NamedSectionHeaderView.swift */,
+				62C055102A26CC3A0071331F /* Models */,
 				620FC9872A24847B0040C617 /* View Controllers */,
 				620FC9822A24830F0040C617 /* Collection View Controllers */,
 				620FC96C2A247C760040C617 /* Main.storyboard */,
@@ -123,6 +123,17 @@
 				620FC9852A2484700040C617 /* UserViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		62C055102A26CC3A0071331F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				620FC9882A2485BD0040C617 /* Habit.swift */,
+				620FC98A2A2486190040C617 /* Category.swift */,
+				620FC98C2A2486490040C617 /* Color.swift */,
+				62C055112A26CC470071331F /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 				622EC91C2A2582B80094FC90 /* Settings.swift in Sources */,
 				620FC9892A2485BD0040C617 /* Habit.swift in Sources */,
 				620FC9672A247C760040C617 /* AppDelegate.swift in Sources */,
+				62C055122A26CC470071331F /* User.swift in Sources */,
 				620FC9692A247C760040C617 /* SceneDelegate.swift in Sources */,
 				620FC97F2A2482FA0040C617 /* UserCollectionViewController.swift in Sources */,
 				620FC98B2A2486190040C617 /* Category.swift in Sources */,

@@ -15,10 +15,8 @@ struct HabitRequest: APIRequest {
     var path: String {"/habits"}
 }
 
-//extension Color: Codable {
-//    enum CodingKeys: String, CodingKey {
-//        case hue = "h"
-//        case saturation = "s"
-//        case brightness = "b"
-//    }
-//}
+struct UserRequest: APIRequest {
+    typealias Response = [String: User]
+    
+    var path: String {"/users"}
+}
